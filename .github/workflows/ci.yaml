@@ -26,10 +26,10 @@ jobs:
         run: |
           selene ./modules
 
-  Debug:
+  debug:
     - name: Debug Token
       run: |
-      echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"
+        echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"
 
   style:
     name: Styling

@@ -17,22 +17,25 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
       
-      - uses: Roblox/setup-foreman@v1
+      - uses: Roblox/setup-foreman@v2
         name: Instal foreman
         with:
             version: "^1.0.0"
-            token: ${{ SECRETS.GITHUB_TOKEN }}
 
       - name: Lint
         run: |
           selene ./modules
+
+  Debug:
+    - name: Debug Token
+      run: |
+      echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"
 
   style:
     name: Styling
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: JohnnyMorganz/stylua-action@1.0.0
+      - uses: JohnnyMorganz/stylua-action@v2.0.0
         with:
-          token: ${{ SECRETS.GITHUB_TOKEN }}
           args: --check

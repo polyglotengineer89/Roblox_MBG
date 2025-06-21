@@ -26,11 +26,6 @@ jobs:
         run: |
           selene ./modules
 
-  debug:
-    - name: Debug Token
-      run: |
-        echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"
-
   style:
     name: Styling
     runs-on: ubuntu-latest
@@ -39,3 +34,11 @@ jobs:
       - uses: JohnnyMorganz/stylua-action@v2.0.0
         with:
           args: --check
+
+  debug:
+    - name: DebugToken
+      runs-on: ubuntu-latest
+      steps:
+      - name: DebugToken
+        run: |
+          echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"

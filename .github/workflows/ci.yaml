@@ -17,10 +17,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
       
-      - uses: Roblox/setup-foreman@v2
+      - uses: Roblox/setup-foreman@v3.1
         name: Instal foreman
         with:
-            version: "^1.0.0"
+            version: "^3.1.0"
+            token: ${{ SECRETS.GITHUB_TOKEN }}
 
       - name: Lint
         run: |
@@ -31,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: JohnnyMorganz/stylua-action@v2.0.0
+      - uses: JohnnyMorganz/stylua-action@v4.1.0
         with:
           args: --check
 

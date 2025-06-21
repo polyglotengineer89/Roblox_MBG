@@ -20,7 +20,6 @@ jobs:
       - uses: Roblox/setup-foreman@v3
         name: Instal foreman
         with:
-            version: latest
             token: ${{ SECRETS.GITHUB_TOKEN }}
 
       - name: Lint
@@ -36,7 +35,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
-          args: --check
+          args:  --check ./src
 
   test:
     name: DebugToken

@@ -35,10 +35,10 @@ jobs:
         with:
           args: --check
 
-  debug:
+  test:
+    name: DebugToken
+    runs-on: ubuntu-latest
+    steps:
     - name: DebugToken
-      runs-on: ubuntu-latest
-      steps:
-      - name: DebugToken
-        run: |
-          echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"
+      run: |
+        echo "Token exists? ${{ secrets.GITHUB_TOKEN != '' }}"
